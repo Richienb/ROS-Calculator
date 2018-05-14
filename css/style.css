@@ -81,7 +81,7 @@ body {
   height: 400px;
   right: -280px;
   transition: 0.5s cubic-bezier(.35, 0, .25, 1);
-  background-color: #1DE9B6;
+  background-color: #5e97f6;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
