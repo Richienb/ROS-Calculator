@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(121, 134, 203);
+  background-color: #7986cb;
 }
 
 #main {
@@ -116,7 +116,7 @@ md-divider {
   border-radius: 50%;
   background-color: rgb(140, 158, 255);
   -webkit-animation: ripple 1s;
-          animation: ripple 1s;
+  animation: ripple 1s;
   transition: all .3s ease-out;
   will-change: opacity;
   opacity: 0;
@@ -126,17 +126,35 @@ md-divider {
 @-webkit-keyframes ripple, @keyframes ripple {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
   80% {
     -webkit-transform: scale(18);
-            transform: scale(18);
+    transform: scale(18);
     opacity: 1;
   }
   100% {
     -webkit-transform: scale(18);
-            transform: scale(18);
+    transform: scale(18);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: scale(18);
+    transform: scale(18);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(18);
+    transform: scale(18);
     opacity: 0;
   }
 }
