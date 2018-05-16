@@ -57,7 +57,7 @@ body {
   height: 32px;
   text-align: right;
   color: #737373;
-  background-color: rgb(250, 250, 250);
+  background-color: #fafafa;
   border: 0;
   width: 350px;
   transition: all .3s;
@@ -71,7 +71,7 @@ body {
   color: #8E8E8E;
   top: 0;
   position: relative;
-  background-color: rgb(250, 250, 250);
+  background-color: #fafafa;
   transition: all .3s;
 }
 
@@ -96,7 +96,7 @@ body {
   font-size: 20px;
   text-transform: none;
   font-weight: 400;
-  color: rgb(70, 70, 70);
+  color: #464646;
 }
 
 .adv:hover {
@@ -105,7 +105,7 @@ body {
 }
 
 md-divider {
-  border-top-color: rgb(250, 250, 250);
+  border-top-color:#fafafa;
 }
 
 .circle {
@@ -114,7 +114,7 @@ md-divider {
   height: 50px;
   right: 32px;
   border-radius: 50%;
-  background-color: rgb(140, 158, 255);
+  background-color: #8c9eff;
   -webkit-animation: ripple 1s;
   animation: ripple 1s;
   transition: all .3s ease-out;
