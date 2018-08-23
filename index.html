@@ -1,127 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="CalcApp">
 
 <head>
-  <!-- General Stuff -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#2b5797">
+    <!-- Common declarations -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- Import Website Resources -->
-  <link rel="stylesheet" href="/css/style.css" />
+    <!-- SEO -->
+    <title>ROS Calculator</title>
+    <meta name="description" content="This is a Material Design calculator in your browser.">
+    <meta name="keywords" content="Calculator, Material Calculator, Online Calculator, HTML, CSS, JS">
+    <meta name="author" content="Richie Bendall">
 
-  <!-- Import Resources -->
-  <link rel='stylesheet prefetch' href='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css'>
-  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=RobotoDraft:400,500|Material+Icons'>
+    <!-- Define web app manifests -->
+    <link rel="manifest" href="manifests/site.webmanifest">
+    <meta name="msapplication-config" content="manifests/browserconfig.xml">
 
-  <!-- Development Message -->
-  <script>
-    console.log("Want to help develop this website? Well, you can. This website is open source so you can edit it and use it as inspiration for your own website at https://github.com/Richienb/ROS-Calculator");
-  </script>
+    <!-- Set theme colour -->
+    <meta name="theme-color" content="#3f51b5">
 
-  <!-- SEO -->
-  <title>ROS Calculator</title>
-  <meta name="description" content="This is ROS Calculator, A Simplistic Material Design Based Calculator.">
+    <!-- Set favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
 
-  <!-- Native App Support -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="194x194" href="/images/favicons/favicon-194x194.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
-  <link rel="manifest" href="/images/favicons/site.webmanifest">
-  <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#2b5797">
-  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
-  <meta name="apple-mobile-web-app-title" content="ROS Calculator">
-  <meta name="application-name" content="ROS Calculator">
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
-  <meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
-  <meta name="theme-color" content="#fafafa">
+    <!-- Run critical JavaScript -->
+    <script async defer>
+        // Print out a message in the console
+        console.log("ROS Calculator is open source on GitHub for you to check out: https://github.com/Richienb/ROS-Calculator");
 
-  <!-- Rich Link Support -->
-  <meta property="og:image" content="/images/favicons/og-image.jpg">
-  <meta property="og:image:width" content="279">
-  <meta property="og:image:height" content="279">
-  <meta property="og:title" content="ROS Calculator">
-  <meta property="og:description" content="Welcome Social Media Users To ROS Calculator, A Simplistic Material Design Based Calculator.">
-  <meta property="og:url" content="https://calculator.richie-bendall.ml">
+        // Check that service workers are registered
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
 
-  <!-- Import Web Manifest -->
-  <link rel="manifest" href="/manifest.json">
-
+        // Enable passive scrolling mode if supported
+        if ('ontouchstart' in document.documentElement) {
+            document.addEventListener('touchstart', onTouchStart, {
+                passive: true
+            });
+        }
+    </script>
 </head>
 
 <body>
 
-  <html lang="en" ng-app="CalcApp">
+    <body ng-cloak layout="column" layout-align="center center" ng-controller="calcCtrl">
+        <md-card id="main" class="md-whiteframe-z4">
+            <input class="disp" id="inp" ng-model="expr" type="text" ng-keyup="$scope.getRes();">
+            </input>
+            <md-divider></md-divider>
+            <div class="result">{{result}}</div>
+            <div ng-if="aclick" ng-init="aclick=false" class="circle">
+            </div>
+            <div class="panel">
+                <div class="input">
+                    <md-button class="md-icon-button seven" ng-click="expr = expr + 7">7</md-button>
+                    <md-button class="md-icon-button eight" ng-click="expr = expr + 8">8</md-button>
+                    <md-button class="md-icon-button nine" ng-click="expr = expr + 9">9</md-button>
+                    <md-button class="md-icon-button four" ng-click="expr = expr + 4">4</md-button>
+                    <md-button class="md-icon-button five" ng-click="expr = expr + 5">5</md-button>
+                    <md-button class="md-icon-button six" ng-click="expr = expr + 6">6</md-button>
+                    <md-button class="md-icon-button one" ng-click="expr = expr + 1">1</md-button>
+                    <md-button class="md-icon-button two" ng-click="expr = expr + 2">2</md-button>
+                    <md-button class="md-icon-button three" ng-click="expr = expr + 3">3</md-button>
+                    <md-button class="md-icon-button dot" ng-click="expr = expr + " . "">.</md-button>
+                    <md-button class="md-icon-button zero" ng-click="expr = expr + 0">0</md-button>
+                    <md-button class="md-icon-button equal" ng-click="getRes()">=</md-button>
 
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+                </div>
+                <div class="controls">
+                    <md-button ng-click=" aclick=!aclick; ac();">AC</md-button>
+                    <md-button ng-click="clear()">CE</md-button>
+                    <md-button ng-click="expr = expr + " / "">/</md-button>
+                    <md-button ng-click="expr = expr + " * "">X</md-button>
+                    <md-button ng-click="expr = expr + " - "">-</md-button>
+                    <md-button ng-click="expr = expr + " + "">+</md-button>
+                </div>
+                <div class="adv" md-whiteframe="z1">
+                    <md-button class="md-icon-button " ng-click="expr = expr + " sin( "">sin</md-button>
+                    <md-button class="md-icon-button " ng-click="expr = expr + " cos( "">cos</md-button>
+                    <md-button class="md-icon-button " ng-click="expr = expr + " tan( "">tan</md-button>
+                    <md-button class="md-icon-button " ng-click="expr = expr + " log( "">ln</md-button>
+                    <md-button class="md-icon-button " ng-click="expr = expr + " log10( "">log</md-button>
+                    <md-button class="md-icon-button " ng-click="expr = expr + " ! "">!</md-button>
+                    <md-button class="md-icon-button " ng-click="expr = expr + " PI "">π</md-button>
+                    <md-button class="md-icon-button " ng-click="expr = expr + " e "">e</md-button>
+                    <md-button class="md-icon-button three" ng-click="expr = expr + " ^ "">^</md-button>
+                    <md-button class="md-icon-button dot" ng-click="expr = expr + " ( "">(</md-button>
+                    <md-button class="md-icon-button zero" ng-click="expr = expr + " ) "">)</md-button>
+                    <md-button class="md-icon-button equal" ng-click="expr = expr + " sqrt( "">√</md-button>
+                </div>
+            </div>
+        </md-card>
+    </body>
 
-  <body ng-cloak layout='column' layout-align='center center' ng-controller='calcCtrl'>
-    <md-card id='main' class='md-whiteframe-z4'>
-      <input class='disp' id='inp' ng-model='expr' type='text' ng-keyup='$scope.getRes();'>
-      </input>
-      <md-divider></md-divider>
-      <div class='result'>{{result}}</div>
-      <div ng-if='aclick' ng-init='aclick=false' class='circle'>
-      </div>
-      <div class='panel'>
-        <div class='input'>
-          <md-button class='md-icon-button seven' ng-click='expr = expr + 7'>7</md-button>
-          <md-button class='md-icon-button eight' ng-click='expr = expr + 8'>8</md-button>
-          <md-button class='md-icon-button nine' ng-click='expr = expr + 9'>9</md-button>
-          <md-button class='md-icon-button four' ng-click='expr = expr + 4'>4</md-button>
-          <md-button class='md-icon-button five' ng-click='expr = expr + 5'>5</md-button>
-          <md-button class='md-icon-button six' ng-click='expr = expr + 6'>6</md-button>
-          <md-button class='md-icon-button one' ng-click='expr = expr + 1'>1</md-button>
-          <md-button class='md-icon-button two' ng-click='expr = expr + 2'>2</md-button>
-          <md-button class='md-icon-button three' ng-click='expr = expr + 3'>3</md-button>
-          <md-button class='md-icon-button dot' ng-click="expr = expr + '.'">.</md-button>
-          <md-button class='md-icon-button zero' ng-click='expr = expr + 0'>0</md-button>
-          <md-button class='md-icon-button equal' ng-click='getRes()'>=</md-button>
+    <footer>
+        <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/angular-material@1.1/angular-material.min.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,500">
+        <link rel="stylesheet" href="css/style.css">
 
-        </div>
-        <div class='controls'>
-          <md-button ng-click=" aclick=!aclick; ac();">AC</md-button>
-          <md-button ng-click="clear()">CE</md-button>
-          <md-button ng-click="expr = expr + ' / '">/</md-button>
-          <md-button ng-click="expr = expr + ' * '">X</md-button>
-          <md-button ng-click="expr = expr + ' - '">-</md-button>
-          <md-button ng-click="expr = expr + ' + '">+</md-button>
-        </div>
-        <div class='adv' md-whiteframe='z1'>
-          <md-button class='md-icon-button ' ng-click="expr = expr + 'sin('">sin</md-button>
-          <md-button class='md-icon-button ' ng-click="expr = expr + 'cos('">cos</md-button>
-          <md-button class='md-icon-button ' ng-click="expr = expr + 'tan('">tan</md-button>
-          <md-button class='md-icon-button ' ng-click="expr = expr + 'log('">ln</md-button>
-          <md-button class='md-icon-button ' ng-click="expr = expr + 'log10('">log</md-button>
-          <md-button class='md-icon-button ' ng-click="expr = expr + '!'">!</md-button>
-          <md-button class='md-icon-button ' ng-click="expr = expr + 'PI'">π</md-button>
-          <md-button class='md-icon-button ' ng-click="expr = expr + 'e'">e</md-button>
-          <md-button class='md-icon-button three' ng-click="expr = expr + '^'">^</md-button>
-          <md-button class='md-icon-button dot' ng-click="expr = expr + '('">(</md-button>
-          <md-button class='md-icon-button zero' ng-click="expr = expr + ')'">)</md-button>
-          <md-button class='md-icon-button equal' ng-click="expr = expr + 'sqrt('">√</md-button>
-        </div>
-      </div>
-    </md-card>
-    <md-button class='info md-icon-button'><i class='material-icons'>info</i></md-button>
-  </body>
-
-  </html>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.4.1/math.min.js'></script>
-
-  <script src="js/index.js"></script>
+        <script async defer src="http://cdn.jsdelivr.net/npm/angular@1.5/angular.min.js"></script>
+        <script async defer src="http://cdn.jsdelivr.net/npm/angular-aria@1.5/angular-aria.min.js"></script>
+        <script async defer src="http://cdn.jsdelivr.net/npm/angular-animate@1.5/angular-animate.min.js"></script>
+        <script async defer src="http://cdn.jsdelivr.net/npm/angular-material@1.1/angular-material.min.js"></script>
+        <script async defer src="http://cdn.jsdelivr.net/npm/angular-messages@1.5/angular-messages.min.js"></script>
+        <script async defer src="http://cdn.jsdelivr.net/npm/jquery@3.1/dist/jquery.min.js"></script>
+        <script async defer src="http://cdn.jsdelivr.net/npm/mathjs@3.4/dist/math.min.js"></script>
+        <script async defer src="http://cdn.jsdelivr.net/gh/aFarkas/html5shiv@3.7/dist/html5shiv-printshiv.min.js"></script>
+        <script async src="js/index.js"></script>
+    </footer>
 
 </body>
 
