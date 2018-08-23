@@ -32,8 +32,12 @@ self.__precacheManifest = [
     "revision": "149fc8a2b76e295ed5b4bbd82cee5408"
   },
   {
+    "url": "favicon.ico",
+    "revision": "3214324a79fc5ec0aee03c0495673df8"
+  },
+  {
     "url": "index.html",
-    "revision": "55bef0f745810fc4891379cf8dc46922"
+    "revision": "55656c3743448da1e260f4d2b7f9133e"
   },
   {
     "url": "js/index.js",
