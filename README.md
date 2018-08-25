@@ -1,3 +1,3 @@
-### ROS Calculator [![Code Quality](https://www.codefactor.io/repository/github/richienb/ros-calculator/badge)](https://www.codefactor.io/repository/github/richienb/ros-calculator)
+### ROS Calculator
 
 A Simple, Materialistic Calculator.
