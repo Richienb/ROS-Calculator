@@ -89,7 +89,7 @@ self.__precacheManifest = [
   },
   {
     "url": "workbox-config.js",
-    "revision": "1667d76c538bdf070575a34a89885767"
+    "revision": "5fee5a9cf219335a8f572478b432f31f"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
