@@ -3,9 +3,9 @@ html, div, map, dt, isindex, form, header, nav, article, footer, address, md-but
 }
 
 @font-face {
-    font-family: 'Roboto';
     font-display: swap;
-    src: local('Roboto'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');
+    font-family: 'Roboto';
+    src: local('Roboto'), url('https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc4.woff2') format('woff2');
 }
 
 body {
@@ -140,11 +140,13 @@ md-divider {
         opacity: 1;
         transform: scale(0);
     }
+
     80% {
         -webkit-transform: scale(18);
         opacity: 1;
         transform: scale(18);
     }
+
     100% {
         -webkit-transform: scale(18);
         opacity: 0;
@@ -158,11 +160,13 @@ md-divider {
         opacity: 1;
         transform: scale(0);
     }
+
     80% {
         -webkit-transform: scale(18);
         opacity: 1;
         transform: scale(18);
     }
+
     100% {
         -webkit-transform: scale(18);
         opacity: 0;
