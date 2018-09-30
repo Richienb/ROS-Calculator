@@ -18,6 +18,9 @@
     <meta name="keywords" content="Calculator, Material Calculator, Online Calculator, HTML, CSS, JS">
     <meta name="author" content="Richie Bendall">
 
+    <!-- Import Font -->
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:400,500" as="style" onload='this.onload=null,this.rel="stylesheet"'>
+
     <!-- Set theme colour -->
     <meta name="theme-color" content="#3f51b5">
 
@@ -31,7 +34,6 @@
     <!-- Import CSS Resources -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.10/angular-material.min.css" as="style" onload='this.onload=null,this.rel="stylesheet"'>
     <link rel="preload" href="css/style.css" as="style" onload='this.onload=null,this.rel="stylesheet"'>
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:400,500" as="style" onload='this.onload=null,this.rel="stylesheet"'>
 
     <!-- Run critical JavaScript -->
     <script>
@@ -52,10 +54,19 @@
                 passive: true
             });
         }
+
+        // Resize handling function
+        function handleResize(){
+            if (window.innerWidth < 400) {
+                document.body.style.zoom = window.innerWidth / 400;
+                document.body.style.MozTransform = 'scale(' + window.innerWidth / 400 + ')';
+                document.body.style.WebkitTransform = 'scale(' + window.innerWidth / 400 + ')';
+            }
+        };
     </script>
 </head>
 
-<body ng-app="CalcApp" ng-cloak layout="column" layout-align="center center" ng-controller="calcCtrl">
+<body ng-app="CalcApp" ng-cloak layout="column" layout-align="center center" ng-controller="calcCtrl" onresize="handleResize()">
     <md-card class="md-whiteframe-z4 main">
         <input class="disp" id="inp" ng-model="expr" type="text" ng-keyup="$scope.getRes();">
         </input>

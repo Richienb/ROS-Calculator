@@ -34,3 +34,14 @@ app.controller("calcCtrl", function($scope, $timeout, $rootScope) {
         }
     });
 });
+
+// Resize handling function
+function handleResize(){
+    if (window.innerWidth < 400) {
+        document.body.style.zoom = window.innerWidth / 400;
+        document.body.style.MozTransform = 'scale(' + window.innerWidth / 400 + ')';
+        document.body.style.WebkitTransform = 'scale(' + window.innerWidth / 400 + ')';
+    }
+};
+
+handleResize();
