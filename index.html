@@ -9,7 +9,7 @@
 
     <!-- If No JavaScript -->
     <noscript>
-      <meta http-equiv="refresh" content="0; url=no-javascript" />
+        <meta http-equiv="refresh" content="0; url=no-javascript" />
     </noscript>
 
     <!-- SEO -->
@@ -33,13 +33,344 @@
 
     <!-- Import CSS Resources -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.10/angular-material.min.css" as="style" onload='this.onload=null,this.rel="stylesheet"'>
-    <link rel="preload" href="css/style.css" as="style" onload='this.onload=null,this.rel="stylesheet"'>
+    <style>
+        html,
+        div,
+        map,
+        dt,
+        isindex,
+        form,
+        header,
+        nav,
+        article,
+        footer,
+        address,
+        md-button {
+            display: block;
+        }
+        
+        html {
+            background-color: #5c6bc0;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #5c6bc0;
+        }
+        
+        .main {
+            display: block;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -moz-box-orient: vertical;
+            -moz-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            width: 400px;
+        }
+        
+        .panel {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: row;
+            -moz-box-orient: horizontal;
+            -moz-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .controls {
+            background-color: #EEEEEE;
+            color: #2979FF;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -moz-box-orient: vertical;
+            -moz-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+        
+        .controls .md-button {
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 66.6px;
+            -moz-box-flex: 0;
+            -ms-flex: 0 0 66.6px;
+            flex: 0 0 66.6px;
+            font-size: 16px;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -moz-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            margin: 0;
+        }
+        
+        .input {
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-color: #F5F5F5;
+            color: #212121;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: row;
+            -moz-box-orient: horizontal;
+            -moz-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            width: 300px;
+        }
+        
+        .input .md-button {
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 33%;
+            -moz-box-flex: 0;
+            -ms-flex: 0 0 33%;
+            flex: 0 0 33%;
+            font-size: 24px;
+            height: 100px;
+            margin: 0;
+        }
+        
+        .disp {
+            background-color: #fafafa;
+            border: 0;
+            color: #737373;
+            font-size: 36px;
+            height: 32px;
+            padding: 20px 25px;
+            text-align: right;
+            -webkit-transition: all .3s;
+            -o-transition: all .3s;
+            -moz-transition: all .3s;
+            transition: all .3s;
+            width: 350px;
+        }
+        
+        .result {
+            background-color: #fafafa;
+            color: #8e8e8e;
+            font-size: 32px;
+            height: 40px;
+            padding: 10px 25px;
+            position: relative;
+            text-align: right;
+            top: 0;
+            -webkit-transition: all .3s;
+            -o-transition: all .3s;
+            -moz-transition: all .3s;
+            transition: all .3s;
+        }
+        
+        .adv {
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-color: #2979FF;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: row;
+            -moz-box-orient: horizontal;
+            -moz-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            height: 400px;
+            -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            position: absolute;
+            right: -280px;
+            -webkit-transition: .5s cubic-bezier(.35, 0, .25, 1);
+            -o-transition: .5s cubic-bezier(.35, 0, .25, 1);
+            -moz-transition: .5s cubic-bezier(.35, 0, .25, 1);
+            transition: .5s cubic-bezier(.35, 0, .25, 1);
+            width: 300px;
+        }
+        
+        .adv .md-button {
+            color: #fafafa;
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 33%;
+            -moz-box-flex: 0;
+            -ms-flex: 0 0 33%;
+            flex: 0 0 33%;
+            font-size: 20px;
+            font-weight: 400;
+            height: 100px;
+            margin: 0;
+            text-transform: none;
+        }
+        
+        .adv:hover {
+            right: 0;
+            -webkit-transition: .5s cubic-bezier(.35, 0, .25, 1);
+            -o-transition: .5s cubic-bezier(.35, 0, .25, 1);
+            -moz-transition: .5s cubic-bezier(.35, 0, .25, 1);
+            transition: .5s cubic-bezier(.35, 0, .25, 1);
+        }
+        
+        md-divider {
+            border-top-color: #fafafa;
+        }
+        
+        .circle {
+            -webkit-animation: ripple .5s;
+            -webkit-backface-visibility: hidden;
+            -moz-animation: ripple .5s;
+            -o-animation: ripple .5s;
+            animation: ripple .5s;
+            background-color: #8c9eff;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            height: 50px;
+            opacity: 0;
+            position: absolute;
+            right: 32px;
+            -webkit-transition: all .3s ease-out;
+            -o-transition: all .3s ease-out;
+            -moz-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+            width: 50px;
+            will-change: opacity;
+        }
+        
+        @-webkit-keyframes ripple {
+            0% {
+                -webkit-transform: scale(0);
+                opacity: 1;
+                transform: scale(0);
+            }
+            80% {
+                -webkit-transform: scale(18);
+                opacity: 1;
+                transform: scale(18);
+            }
+            100% {
+                -webkit-transform: scale(18);
+                opacity: 0;
+                transform: scale(18);
+            }
+        }
+        
+        @-moz-keyframes ripple {
+            0% {
+                -webkit-transform: scale(0);
+                opacity: 1;
+                -moz-transform: scale(0);
+                transform: scale(0);
+            }
+            80% {
+                -webkit-transform: scale(18);
+                opacity: 1;
+                -moz-transform: scale(18);
+                transform: scale(18);
+            }
+            100% {
+                -webkit-transform: scale(18);
+                opacity: 0;
+                -moz-transform: scale(18);
+                transform: scale(18);
+            }
+        }
+        
+        @-o-keyframes ripple {
+            0% {
+                -webkit-transform: scale(0);
+                opacity: 1;
+                -o-transform: scale(0);
+                transform: scale(0);
+            }
+            80% {
+                -webkit-transform: scale(18);
+                opacity: 1;
+                -o-transform: scale(18);
+                transform: scale(18);
+            }
+            100% {
+                -webkit-transform: scale(18);
+                opacity: 0;
+                -o-transform: scale(18);
+                transform: scale(18);
+            }
+        }
+        
+        @keyframes ripple {
+            0% {
+                -webkit-transform: scale(0);
+                opacity: 1;
+                -moz-transform: scale(0);
+                -o-transform: scale(0);
+                transform: scale(0);
+            }
+            80% {
+                -webkit-transform: scale(18);
+                opacity: 1;
+                -moz-transform: scale(18);
+                -o-transform: scale(18);
+                transform: scale(18);
+            }
+            100% {
+                -webkit-transform: scale(18);
+                opacity: 0;
+                -moz-transform: scale(18);
+                -o-transform: scale(18);
+                transform: scale(18);
+            }
+        }
+    </style>
 
     <!-- Run critical JavaScript -->
     <script>
         // Print out a message in the console
         console.log("ROS Calculator is open source on GitHub for you to check out: https://github.com/Richienb/ROS-Calculator");
-
         // Check that service workers are registered
         if ("serviceWorker" in navigator) {
             // Use the window load event to keep the page load performant
@@ -47,22 +378,14 @@
                 navigator.serviceWorker.register("/service-worker.js");
             });
         }
-
-        // Enable passive scrolling mode if supported
-        if ("ontouchstart" in document.documentElement) {
-            document.addEventListener("touchstart", onTouchStart, {
-                passive: true
-            });
-        }
     </script>
 </head>
 
 <body ng-app="CalcApp" ng-cloak layout="column" layout-align="center center" ng-controller="calcCtrl" onresize="handleResize()">
     <md-card class="md-whiteframe-z4 main">
-        <input class="disp" id="inp" ng-model="expr" type="text" ng-keyup="$scope.getRes();">
-        </input>
-        <md-divider></md-divider>
-        <div class="result">{{result}}</div>
+        <input class="disp" id="inp" ng-model="expr" type="text" ng-keyup="$scope.getRes();" aria-label="equation to calculate">
+        <md-divider aria-hidden="true"></md-divider>
+        <div class="result" aria-label="result of the equation">{{result}}</div>
         <div ng-if="aclick" ng-init="aclick=false" class="circle">
         </div>
         <div class="panel">
@@ -76,48 +399,93 @@
                 <md-button class="md-icon-button one" ng-click="expr = expr + 1">1</md-button>
                 <md-button class="md-icon-button two" ng-click="expr = expr + 2">2</md-button>
                 <md-button class="md-icon-button three" ng-click="expr = expr + 3">3</md-button>
-                <md-button class="md-icon-button dot" ng-click="expr = expr + '.'">.</md-button>
+
                 <md-button class="md-icon-button zero" ng-click="expr = expr + 0">0</md-button>
-                <md-button class="md-icon-button equal" ng-click="getRes()">=</md-button>
+                <md-button class="md-icon-button dot" ng-click="expr = expr + '.'" aria-label="Decimal point">.</md-button>
+                <md-button class="md-icon-button equal" ng-click="getRes()" aria-label="Equals">=</md-button>
 
             </div>
             <div class="controls">
-                <md-button ng-click=" aclick=!aclick; ac();">AC</md-button>
-                <md-button ng-click="clear()">CE</md-button>
-                <md-button ng-click="expr = expr + ' / '">/</md-button>
-                <md-button ng-click="expr = expr + ' * '">X</md-button>
-                <md-button ng-click="expr = expr + ' - '">-</md-button>
-                <md-button ng-click="expr = expr + ' + '">+</md-button>
+                <md-button ng-click=" aclick=!aclick; ac();" aria-label="Clear all">AC</md-button>
+                <md-button ng-click="clear()" aria-label="Remove last entry">CE</md-button>
+                <md-button ng-click="expr = expr + ' / '" aria-label="divide">/</md-button>
+                <md-button ng-click="expr = expr + ' * '" aria-label="times">X</md-button>
+                <md-button ng-click="expr = expr + ' - '" aria-label="plus">-</md-button>
+                <md-button ng-click="expr = expr + ' + '" aria-label="minus">+</md-button>
             </div>
             <div class="adv" md-whiteframe="z1">
                 <md-button class="md-icon-button" ng-click="expr = expr + 'sin('">sin</md-button>
                 <md-button class="md-icon-button" ng-click="expr = expr + 'cos('">cos</md-button>
                 <md-button class="md-icon-button" ng-click="expr = expr + 'tan('">tan</md-button>
-                <md-button class="md-icon-button" ng-click="expr = expr + 'log('">ln</md-button>
+                <md-button class="md-icon-button" ng-click="expr = expr + 'log('" aria-label="natural logarithm">ln</md-button>
                 <md-button class="md-icon-button" ng-click="expr = expr + 'log10('">log</md-button>
-                <md-button class="md-icon-button" ng-click="expr = expr + '!'">!</md-button>
+                <md-button class="md-icon-button" ng-click="expr = expr + '!'" aria-label="factorial">!</md-button>
                 <md-button class="md-icon-button" ng-click="expr = expr + 'PI'">π</md-button>
                 <md-button class="md-icon-button" ng-click="expr = expr + 'e'">e</md-button>
-                <md-button class="md-icon-button three" ng-click="expr = expr + '^'">^</md-button>
-                <md-button class="md-icon-button dot" ng-click="expr = expr + '('">(</md-button>
-                <md-button class="md-icon-button zero" ng-click="expr = expr + ')'">)</md-button>
+                <md-button class="md-icon-button three" ng-click="expr = expr + '^'" aria-label="exponent">^</md-button>
+                <md-button class="md-icon-button dot" ng-click="expr = expr + '('" aria-label="opening bracket">(</md-button>
+                <md-button class="md-icon-button zero" ng-click="expr = expr + ')'" aria-label="closing bracket">)</md-button>
                 <md-button class="md-icon-button equal" ng-click="expr = expr + 'sqrt('">√</md-button>
             </div>
         </div>
     </md-card>
-</body>
-
-<footer>
     <!-- Import JavaScript Resources -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-aria.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-animate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.10/angular-material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-messages.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.1.2/math.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-    <script src="js/index.js"></script>
-</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-messages.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.2.3/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js" async></script>
+    <script>
+        "use strict";
+        var app = angular.module("CalcApp", ["ngMaterial", "ngAnimate"]);
+        app.controller("calcCtrl", function($scope, $timeout, $rootScope) {
+            $scope.aclick = false;
+            $scope.expr = "";
+            $scope.result = "";
+            $scope.getRes = function() {
+                try {
+                    if ($scope.expr != "") {
+                        $scope.result = math.round(math.eval($scope.expr), 8);
+                    } else {
+                        $scope.result = "";
+                    }
+                } catch (e) {
+                    $scope.result = "Error";
+                }
+            };
+            $scope.ac = function() {
+                $timeout(function() {
+                    $scope.expr = "";
+                    $scope.result = "";
+                    $scope.aclick = false;
+                }, 500);
+            };
+            $scope.clear = function() {
+                if ($scope.expr.substr(-1) == " ") {
+                    $scope.expr = $scope.expr.slice(0, -2);
+                } else {
+                    $scope.expr = $scope.expr.slice(0, -1);
+                }
+            };
+            $("#inp").keypress(function(e) {
+                if (e.keyCode == 13) {
+                    $scope.getRes();
+                }
+            });
+        });
+        // Resize handling function
+        function handleResize() {
+            if (window.innerWidth < 400) {
+                document.body.style.zoom = window.innerWidth / 400;
+                document.body.style.MozTransform = 'scale(' + window.innerWidth / 400 + ')';
+                document.body.style.WebkitTransform = 'scale(' + window.innerWidth / 400 + ')';
+            }
+        };
+        handleResize();
+    </script>
+</body>
 
 </html>
