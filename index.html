@@ -48,16 +48,16 @@
         md-button {
             display: block;
         }
-        
+
         html {
             background-color: #5c6bc0;
         }
-        
+
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #5c6bc0;
         }
-        
+
         .main {
             display: block;
             -webkit-box-orient: vertical;
@@ -71,7 +71,7 @@
             position: relative;
             width: 400px;
         }
-        
+
         .panel {
             display: -webkit-box;
             display: -webkit-flex;
@@ -88,7 +88,7 @@
             overflow: hidden;
             position: relative;
         }
-        
+
         .controls {
             background-color: #EEEEEE;
             color: #2979FF;
@@ -105,7 +105,7 @@
             -ms-flex-direction: column;
             flex-direction: column;
         }
-        
+
         .controls .md-button {
             -webkit-box-align: center;
             -webkit-align-items: center;
@@ -128,7 +128,7 @@
             justify-content: center;
             margin: 0;
         }
-        
+
         .input {
             -webkit-box-align: center;
             -webkit-align-items: center;
@@ -157,7 +157,7 @@
             justify-content: space-around;
             width: 300px;
         }
-        
+
         .input .md-button {
             -webkit-box-flex: 0;
             -webkit-flex: 0 0 33%;
@@ -168,7 +168,7 @@
             height: 100px;
             margin: 0;
         }
-        
+
         .disp {
             background-color: #fafafa;
             border: 0;
@@ -183,7 +183,7 @@
             transition: all .3s;
             width: 350px;
         }
-        
+
         .result {
             background-color: #fafafa;
             color: #8e8e8e;
@@ -198,7 +198,7 @@
             -moz-transition: all .3s;
             transition: all .3s;
         }
-        
+
         .adv {
             -webkit-box-align: center;
             -webkit-align-items: center;
@@ -233,7 +233,7 @@
             transition: .5s cubic-bezier(.35, 0, .25, 1);
             width: 300px;
         }
-        
+
         .adv .md-button {
             color: #fafafa;
             -webkit-box-flex: 0;
@@ -247,7 +247,7 @@
             margin: 0;
             text-transform: none;
         }
-        
+
         .adv:hover {
             right: 0;
             -webkit-transition: .5s cubic-bezier(.35, 0, .25, 1);
@@ -255,11 +255,11 @@
             -moz-transition: .5s cubic-bezier(.35, 0, .25, 1);
             transition: .5s cubic-bezier(.35, 0, .25, 1);
         }
-        
+
         md-divider {
             border-top-color: #fafafa;
         }
-        
+
         .circle {
             -webkit-animation: ripple .5s;
             -webkit-backface-visibility: hidden;
@@ -281,7 +281,7 @@
             width: 50px;
             will-change: opacity;
         }
-        
+
         @-webkit-keyframes ripple {
             0% {
                 -webkit-transform: scale(0);
@@ -299,7 +299,7 @@
                 transform: scale(18);
             }
         }
-        
+
         @-moz-keyframes ripple {
             0% {
                 -webkit-transform: scale(0);
@@ -320,7 +320,7 @@
                 transform: scale(18);
             }
         }
-        
+
         @-o-keyframes ripple {
             0% {
                 -webkit-transform: scale(0);
@@ -341,7 +341,7 @@
                 transform: scale(18);
             }
         }
-        
+
         @keyframes ripple {
             0% {
                 -webkit-transform: scale(0);
@@ -366,19 +366,6 @@
             }
         }
     </style>
-
-    <!-- Run critical JavaScript -->
-    <script>
-        // Print out a message in the console
-        console.log("ROS Calculator is open source on GitHub for you to check out: https://github.com/Richienb/ROS-Calculator");
-        // Check that service workers are registered
-        if ("serviceWorker" in navigator) {
-            // Use the window load event to keep the page load performant
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/service-worker.js");
-            });
-        }
-    </script>
 </head>
 
 <body ng-app="CalcApp" ng-cloak layout="column" layout-align="center center" ng-controller="calcCtrl" onresize="handleResize()">
@@ -433,10 +420,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-aria.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-animate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.10/angular-material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-messages.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.11/angular-material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.2.3/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.0/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js" async></script>
     <script>
         "use strict";
@@ -447,7 +433,7 @@
             $scope.result = "";
             $scope.getRes = function() {
                 try {
-                    if ($scope.expr != "") {
+                    if ($scope.expr !== "") {
                         $scope.result = math.round(math.eval($scope.expr), 8);
                     } else {
                         $scope.result = "";
@@ -479,12 +465,22 @@
         // Resize handling function
         function handleResize() {
             if (window.innerWidth < 400) {
-                document.body.style.zoom = window.innerWidth / 400;
-                document.body.style.MozTransform = 'scale(' + window.innerWidth / 400 + ')';
-                document.body.style.WebkitTransform = 'scale(' + window.innerWidth / 400 + ')';
+                $("html, body").css("zoom", window.innerWidth / 400)
+                $("html, body").css("MozTransform", window.innerWidth / 400)
+                $("html, body").css("WebkitTransform", window.innerWidth / 400)
             }
         };
         handleResize();
+
+        // Print out a message in the console
+        console.log("ROS Calculator is open source on GitHub for you to check out: https://github.com/Richienb/ROS-Calculator");
+        // Check that service workers are registered
+        if ("serviceWorker" in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener("load", function() {
+                navigator.serviceWorker.register("/service-worker.js");
+            })
+        }
     </script>
 </body>
 
