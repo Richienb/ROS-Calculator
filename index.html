@@ -14,14 +14,13 @@
     <meta name="author" content="Richie Bendall">
 
     <!-- Set theme colour -->
-    <meta name="theme-color" content="#3f51b5">
+    <meta name="theme-color" content="#4285f4">
 
     <!-- Set favicon -->
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- Define web app manifests -->
-    <link rel="manifest" href="manifests/site.webmanifest">
-    <meta name="msapplication-config" content="manifests/browserconfig.xml">
+    <link rel="manifest" href="site.webmanifest">
 
     <!-- Import CSS Resources -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.18/angular-material.min.css">
@@ -30,13 +29,13 @@
         html {
             transition: zoom 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         body {
             transition: zoom 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             background-color: #4285f4;
             font-family: Roboto, sans-serif;
         }
-        
+
         #main {
             width: 400px;
             display: block;
@@ -44,25 +43,25 @@
             overflow: hidden;
             flex-direction: column;
         }
-        
+
         .panel {
             display: flex;
             flex-direction: row;
             overflow: hidden;
             position: relative;
         }
-        
+
         .md-button {
             transition: box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .controls {
             display: flex;
             flex-direction: column;
             background-color: #eeeeee;
             color: #4285f4;
         }
-        
+
         .controls .md-button {
             flex: 0 0 66.6px;
             margin: 0px;
@@ -70,15 +69,15 @@
             align-items: center;
             font-size: 16px;
         }
-        
+
         .controls-symbol {
             font-size: 25px !important;
         }
-        
+
         .controls-svg {
             margin-top: 13px;
         }
-        
+
         .input {
             display: flex;
             flex-wrap: wrap;
@@ -89,14 +88,14 @@
             background-color: #f5f5f5;
             color: #212121;
         }
-        
+
         .input .md-button {
             flex: 0 0 33%;
             height: 100px;
             margin: 0px;
             font-size: 24px;
         }
-        
+
         .disp {
             padding: 20px 25px;
             font-size: 36px;
@@ -108,7 +107,7 @@
             width: 350px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .result {
             padding: 10px 25px;
             font-size: 32px;
@@ -120,7 +119,7 @@
             background-color: white;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .adv {
             position: absolute;
             width: 300px;
@@ -134,7 +133,7 @@
             flex-direction: row;
             align-items: center;
         }
-        
+
         .adv .md-button {
             flex: 0 0 33%;
             height: 100px;
@@ -144,16 +143,16 @@
             font-weight: 400;
             color: white;
         }
-        
+
         .adv:hover {
             transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             right: 0px;
         }
-        
+
         md-divider {
             border-top-color: #fafafa;
         }
-        
+
         .circle {
             position: absolute;
             width: 50px;
@@ -168,7 +167,7 @@
             opacity: 0;
             -webkit-backface-visibility: hidden;
         }
-        
+
         @-webkit-keyframes ripple {
             0% {
                 -webkit-transform: scale(0);
@@ -186,7 +185,7 @@
                 opacity: 0;
             }
         }
-        
+
         @keyframes ripple {
             0% {
                 -webkit-transform: scale(0);
@@ -204,7 +203,7 @@
                 opacity: 0;
             }
         }
-        
+
         #carbonads {
             background-color: rgba(255, 255, 255, 0.9);
             margin-bottom: 1rem;
@@ -219,22 +218,22 @@
             box-sizing: border-box;
             transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         @media only screen and (max-width: 425px) {
             #carbonads {
                 width: calc(100% - 16px);
             }
         }
-        
+
         #carbonads:hover {
             box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
         }
-        
+
         #carbonads .carbon-wrap .carbon-img > img {
             margin-right: 9px;
             float: left;
         }
-        
+
         @media only screen and (max-width: 400px) {
             #carbonads .carbon-wrap .carbon-img > img {
                 width: auto;
@@ -242,7 +241,7 @@
                 height: 50px;
             }
         }
-        
+
         #carbonads .carbon-wrap .carbon-text {
             color: #637381;
             font-weight: 300;
@@ -253,7 +252,7 @@
             margin-top: 8px;
             text-decoration: none;
         }
-        
+
         #carbonads .carbon-poweredby {
             color: #c5cdd0;
             font-size: 8px;

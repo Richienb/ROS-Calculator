@@ -30,16 +30,9 @@ permalink: /404.html
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- Run critical JavaScript -->
-    <script async defer>
+    <script async>
         // Print out a message in the console
         console.log("Want to help develop my website? Well, you can. My website is open source so you can edit it and use it as inspiration for your own website at https://github.com/Richienb/richienb.github.io");
-
-        // Enable passive scrolling mode if supported
-        if ('ontouchstart' in document.documentElement) {
-            document.addEventListener('touchstart', onTouchStart, {
-                passive: true
-            });
-        }
     </script>
 
     <!-- Run critical CSS -->
@@ -173,6 +166,7 @@ permalink: /404.html
         }
 
         @-webkit-keyframes bounceIn {
+
             0%,
             20%,
             40%,
@@ -181,28 +175,34 @@ permalink: /404.html
             100% {
                 transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             }
+
             0% {
                 opacity: 0;
                 -webkit-transform: scale3d(0.3, 0.3, 0.3);
                 transform: scale3d(0.3, 0.3, 0.3);
             }
+
             20% {
                 -webkit-transform: scale3d(1.1, 1.1, 1.1);
                 transform: scale3d(1.1, 1.1, 1.1);
             }
+
             40% {
                 -webkit-transform: scale3d(0.9, 0.9, 0.9);
                 transform: scale3d(0.9, 0.9, 0.9);
             }
+
             60% {
                 opacity: 1;
                 -webkit-transform: scale3d(1.03, 1.03, 1.03);
                 transform: scale3d(1.03, 1.03, 1.03);
             }
+
             80% {
                 -webkit-transform: scale3d(0.97, 0.97, 0.97);
                 transform: scale3d(0.97, 0.97, 0.97);
             }
+
             100% {
                 opacity: 1;
                 -webkit-transform: scale3d(1, 1, 1);
@@ -211,6 +211,7 @@ permalink: /404.html
         }
 
         @keyframes bounceIn {
+
             0%,
             20%,
             40%,
@@ -219,28 +220,34 @@ permalink: /404.html
             100% {
                 transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             }
+
             0% {
                 opacity: 0;
                 -webkit-transform: scale3d(0.3, 0.3, 0.3);
                 transform: scale3d(0.3, 0.3, 0.3);
             }
+
             20% {
                 -webkit-transform: scale3d(1.1, 1.1, 1.1);
                 transform: scale3d(1.1, 1.1, 1.1);
             }
+
             40% {
                 -webkit-transform: scale3d(0.9, 0.9, 0.9);
                 transform: scale3d(0.9, 0.9, 0.9);
             }
+
             60% {
                 opacity: 1;
                 -webkit-transform: scale3d(1.03, 1.03, 1.03);
                 transform: scale3d(1.03, 1.03, 1.03);
             }
+
             80% {
                 -webkit-transform: scale3d(0.97, 0.97, 0.97);
                 transform: scale3d(0.97, 0.97, 0.97);
             }
+
             100% {
                 opacity: 1;
                 -webkit-transform: scale3d(1, 1, 1);
@@ -257,8 +264,8 @@ permalink: /404.html
             <div class="display-table">
                 <div class="display-table-cell">
                     <svg class="icon icon-left icon-x">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-x"></use>
-                        </svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-x"></use>
+                    </svg>
                 </div>
                 <div class="display-table-cell">
                     <h1>Error 404</h1>
@@ -268,14 +275,14 @@ permalink: /404.html
         </div>
     </div>
     <svg class="icons" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <symbol viewBox="0 0 512 512" id="icon-x">
-                <title>x</title>
-                <path d="M438.393 374.595L319.757 255.977l118.62-118.63-63.782-63.74-118.6 118.618-118.62-118.603-63.768 63.73 118.64 118.63L73.62 374.626l63.73 63.768 118.65-118.66 118.65 118.645z"/>
-            </symbol>
-        </svg>
+        <symbol viewBox="0 0 512 512" id="icon-x">
+            <title>x</title>
+            <path d="M438.393 374.595L319.757 255.977l118.62-118.63-63.782-63.74-118.6 118.618-118.62-118.603-63.768 63.73 118.64 118.63L73.62 374.626l63.73 63.768 118.65-118.66 118.65 118.645z" />
+        </symbol>
+    </svg>
 
     <!-- IE6 Compatiblity Script -->
-    <script async defer src="https://cdn.jsdelivr.net/gh/aFarkas/html5shiv@3.7/dist/html5shiv-printshiv.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
 
 </body>
 
