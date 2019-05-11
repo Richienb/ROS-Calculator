@@ -159,7 +159,7 @@
             height: 50px;
             right: 32px;
             border-radius: 50%;
-            background-color: #8c9eff;
+            background-color: #4285f4;
             -webkit-animation: ripple 1s;
             animation: ripple 1s;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -293,7 +293,7 @@
 
             </div>
             <div class="controls">
-                <md-button ng-click=" aclick=!aclick; ac();" aria-label="Clear answer">
+                <md-button ng-click="aclick=!aclick; ac();" aria-label="Clear answer">
                     <svg class="controls-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#4285F4">
                         <path fill="none" d="M0 0h24v24H0V0z" />
                         <path d="M5 13h14v-2H5v2zm-2 4h14v-2H3v2zM7 7v2h14V7H7z" />
@@ -336,13 +336,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.9.0/math.min.js"></script>
 
     <script>
-        var app = angular.module("CalcApp", ["ngMaterial", "ngAnimate"]); // From https://github.com/Richienb/string2regex
-
-        var String2Regex = function String2Regex(str) {
-            var main = str.match(/\/(.+)\/.*/)[1];
-            var options = str.match(/\/.+\/(.*)/)[1];
-            return new RegExp(main, options);
-        };
+        var app = angular.module("CalcApp", ["ngMaterial", "ngAnimate"]);
 
         var parseExprRules = {
             "×": "*",
